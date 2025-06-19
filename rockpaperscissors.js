@@ -56,3 +56,9 @@ console.log(humanChoice);
 // We then initialize this variable with an initial value of 0.
 // Next we create a variable to store the points cored by the computer.
 // We then initialize this variable with an initial value of 0.
+
+let humanScore = 0;
+let computerScore = 0;
+
+console.log(humanScore);
+console.log(computerScore);
