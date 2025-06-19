@@ -44,3 +44,15 @@ function getHumanChoice(choice) {
     }
 }
 console.log(humanChoice);
+
+// Step 4 pseudocode
+// We need to store the results of the game.
+// To do this, we need to create two variables.
+// First variable will store the result of the player.
+// Second variable will store the result of the computer.
+// These variables should be accessible from everywhere in our code.
+// We use global scope for this.
+// First we create a variable to store the points scored by the human.
+// We then initialize this variable with an initial value of 0.
+// Next we create a variable to store the points cored by the computer.
+// We then initialize this variable with an initial value of 0.
