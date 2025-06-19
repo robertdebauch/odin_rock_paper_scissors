@@ -22,3 +22,11 @@ function getComputerChoice() {
 }
 
 console.log(computerChoice);
+
+// Step 3 pseudocode
+// The function is created to receive a response from the user (human player)
+// The function shows a pop-up window with a form for entering a response
+// The user enters a response
+// The user confirms the input
+// The function accepts the response and saves it
+// The function returns the response
