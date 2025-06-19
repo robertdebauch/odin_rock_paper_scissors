@@ -30,3 +30,17 @@ console.log(computerChoice);
 // The user confirms the input
 // The function accepts the response and saves it
 // The function returns the response
+
+let humanChoice = getHumanChoice();
+
+function getHumanChoice(choice) {
+    let answer = prompt("rock, paper or scissors?");
+    if (answer === 'rock') {
+        return choice = 'rock';
+    } else if (answer === 'paper') {
+        return choice = 'paper';
+    } else if (answer === 'scissors') {
+        return choice = 'scissors';
+    }
+}
+console.log(humanChoice);
