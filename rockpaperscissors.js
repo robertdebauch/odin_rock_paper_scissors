@@ -62,3 +62,19 @@ let computerScore = 0;
 
 console.log(humanScore);
 console.log(computerScore);
+
+
+// Step 5 pseudocode
+// We need to play one roudn of the game.
+// To do this, we need to create a new function.
+// This function will use the player's and the computer's choices as parameters.
+// To ensure the acuracy of the result, we need to modify function for user choice.
+// It should not be case sensitive.
+// After the choices of the player and the compuiter are received, they will be compared inside the function.
+// There are nine possible comparison results.
+// The winner of the round is determined as a result of the comparison.
+// Information about the winner of the round is output with a message.
+// The player who wins the round gets +1 points to his score.
+// The player who loses the roung gets nothing.
+// In case of a tie, neither player gets points.
+
