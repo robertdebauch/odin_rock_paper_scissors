@@ -1,13 +1,4 @@
-// Step 2 pseudocode
-// A function is created for the computer's response
-// A random number is generated inside the function
-// The generated number is checked for conditions
-// If is compared with a predefined range of values
-// Each range corresponds to a 'string' value for the computer's response
-// If the generated number matches a certain range, it is outputed as 'return value'
-// The check if performed step-by-step until the comparison conditions are met.
 
-let computerChoice = getComputerChoice();
 
 function getComputerChoice() {
     let answer = Math.random()
@@ -21,20 +12,8 @@ function getComputerChoice() {
     }
 }
 
-console.log(computerChoice);
-
-// Step 3 pseudocode
-// The function is created to receive a response from the user (human player)
-// The function shows a pop-up window with a form for entering a response
-// The user enters a response
-// The user confirms the input
-// The function accepts the response and saves it
-// The function returns the response
-
-let humanChoice = getHumanChoice();
-
 function getHumanChoice(choice) {
-    let answer = prompt("rock, paper or scissors?");
+    let answer = prompt("rock, paper or scissors?").toLowerCase();
     if (answer === 'rock') {
         return choice = 'rock';
     } else if (answer === 'paper') {
@@ -43,7 +22,65 @@ function getHumanChoice(choice) {
         return choice = 'scissors';
     }
 }
-console.log(humanChoice);
+
+let humanScore = 0;
+let computerScore = 0;
+
+
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanSelection;
+    computerChoice = computerSelection;
+    if (humanSelection === "rock" && computerSelection === "paper") {
+        console.log("You lose! Paper beats Rock!");
+        computerScore += 1;
+    } else if (humanSelection === "rock" && computerSelection === "scissors") {
+        humanScore += 1;
+        console.log("You win! Rock beats Scissors!");
+    } else if (humanSelection === "paper" && computerSelection === "rock") {
+        humanScore += 1;
+        console.log("You win! Paper beats Rock!");
+    } else if (humanSelection === "paper" && computerSelection === "scissors") {
+        computerScore += 1;
+        console.log("You lose! Scissors beats Paper!");
+    } else if (humanSelection === "scissors" && computerSelection === "rock") {
+        computerScore += 1;
+        console.log("You lose! Rock beats Scissors!");
+    } else if (humanSelection === "scissors" && computerSelection === "paper") {
+        humanScore += 1;
+        console.log("You win! Scissors beats Paper!");
+    } else {
+        console.log("It's a tie!");
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+
+console.log(humanSelection);
+console.log(computerSelection);
+
+playRound(humanSelection, computerSelection);
+
+console.log(humanScore);
+console.log(computerScore);
+
+// Step 2 pseudocode
+// A function is created for the computer's response
+// A random number is generated inside the function
+// The generated number is checked for conditions
+// If is compared with a predefined range of values
+// Each range corresponds to a 'string' value for the computer's response
+// If the generated number matches a certain range, it is outputed as 'return value'
+// The check if performed step-by-step until the comparison conditions are met.
+
+// Step 3 pseudocode
+// The function is created to receive a response from the user (human player)
+// The function shows a pop-up window with a form for entering a response
+// The user enters a response
+// The user confirms the input
+// The function accepts the response and saves it
+// The function returns the response
 
 // Step 4 pseudocode
 // We need to store the results of the game.
@@ -56,13 +93,6 @@ console.log(humanChoice);
 // We then initialize this variable with an initial value of 0.
 // Next we create a variable to store the points cored by the computer.
 // We then initialize this variable with an initial value of 0.
-
-let humanScore = 0;
-let computerScore = 0;
-
-console.log(humanScore);
-console.log(computerScore);
-
 
 // Step 5 pseudocode
 // We need to play one roudn of the game.
@@ -77,4 +107,3 @@ console.log(computerScore);
 // The player who wins the round gets +1 points to his score.
 // The player who loses the roung gets nothing.
 // In case of a tie, neither player gets points.
-
