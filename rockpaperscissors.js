@@ -7,3 +7,18 @@
 // If the generated number matches a certain range, it is outputed as 'return value'
 // The check if performed step-by-step until the comparison conditions are met.
 
+let computerChoice = getComputerChoice();
+
+function getComputerChoice() {
+    let answer = Math.random()
+    if (answer === 0 || answer <= 0.33) {
+        return choice = 'rock';
+    } else if (answer >= 0.34 && answer <= 0.66) {
+        return choice = 'paper';
+    } else {
+        // answer >= 0.67 && answer <= 0.99
+        return choice = 'scissors';
+    }
+}
+
+console.log(computerChoice);
