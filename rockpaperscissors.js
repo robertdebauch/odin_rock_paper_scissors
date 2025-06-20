@@ -1,5 +1,3 @@
-
-
 function getComputerChoice() {
     let answer = Math.random()
     if (answer === 0 || answer <= 0.33) {
@@ -107,3 +105,18 @@ console.log(computerScore);
 // The player who wins the round gets +1 points to his score.
 // The player who loses the roung gets nothing.
 // In case of a tie, neither player gets points.
+
+// Step 6
+// Players start the game. The game consists of 5 rounds.
+// Players start the first round.
+// Players choose their moves.
+// The winner of the first round gest 1 point, the loser gets 0. A tie gives 0 to both.
+// After the first round is over, the games goes to the second round.
+// The rules of the second round is the same as in the first.
+// Then three more rounds are played according to the same rules.
+// The games takes into account the current round number.
+// If the round number is less than or equal to 5 (index 4), then the game continues.
+// if the round numbers is greater then 5, the games ends and a winner is declared.
+// If human has at least 1 point more than the computer, then he wins. The message indicates this.
+// If computer has at least 1 point more than the human, then he wins.The message indicates this.
+// If there is no winner, then a tie is declared. The message indicates this.
