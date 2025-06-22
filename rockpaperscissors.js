@@ -1,7 +1,6 @@
 function playGame() {
 
     alert('Get ready to play the game! Choose one of three options:');
-
     let humanScore = 0;
     let computerScore = 0;
     let currentRound = 0;
