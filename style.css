@@ -88,6 +88,21 @@ button:hover {
     border-radius: 0rem;
 }
 
+button.refresh {
+    background-color: #080f0f;
+    color: #fff;
+    font-size: 1.5rem;
+    border-radius: 16rem;
+    display: block;
+    margin: auto;
+}
+
+button.refresh:hover {
+    background-color: #fff;
+    color: #080f0f;
+    border: 4px solid #080f0f;
+}
+
 /* scores and information */
 
 #information {

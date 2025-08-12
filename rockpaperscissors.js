@@ -2,9 +2,19 @@ function playGame() {
 
     let humanScore = 0;
     let computerScore = 0;
-    // let currentRound = 0;
 
-    do {
+    const rock = document.querySelector('#rock');
+    const paper = document.querySelector('#paper');
+    const scissors = document.querySelector("#scissors");
+    const humanOptions = [rock, paper, scissors];
+    computerOptions = ['rock', 'paper', 'scissors'];
+
+    humanOptions.forEach((option) => {
+        option.addEventListener('click', () => {
+            playRound(option.id, getComputerChoice()); // computer choise can be array in future too
+            console.log(option.id);
+        });
+    });
 
     // computer choice
     function getComputerChoice() {
@@ -18,31 +28,7 @@ function playGame() {
         }
     }
 
-    // human choice
-    // function getHumanChoice(choice) {
-    //     const rock = document.querySelector('#rock');
-    //     const paper = document.querySelector('#paper');
-    //     const scissors = document.querySelector("#scissors");
-    //     const options = [rock, paper, scissors];
-    // }
-
-    function getHumanChoice(choice) {
-        let answer = prompt("rock, paper or scissors?").toLowerCase();
-        if (answer === 'rock') {
-            return choice = 'rock';
-        } else if (answer === 'paper') {
-            return choice = 'paper';
-        } else if (answer === 'scissors') {
-            return choice = 'scissors';
-        }
-    }
-
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-
-    function playRound(humanChoice, computerChoice) {
-        humanChoice = humanSelection;
-        computerChoice = computerSelection;
+    function playRound(humanSelection, computerSelection) {
         console.log(humanSelection);
         console.log(computerSelection);
         if (humanSelection === "rock" && computerSelection === "paper") {
@@ -71,17 +57,24 @@ function playGame() {
         console.log("Human score: " + humanScore + " | " + "Computer score: " + computerScore);
     }
 
-    playRound(humanSelection, computerSelection);
-    
-    } while (humanScore < 5 && computerScore < 5);
+    // playRound(humanSelection, computerSelection);
 
-    if (humanScore > computerScore && humanScore >= 5) {
+
+    if (humanScore > computerScore && humanScore >= 1) {
         console.log('Human won!');
-    } else if (computerScore > humanScore && computerScore >= 5) {
+    } else if (computerScore > humanScore && computerScore >= 1) {
         console.log('Computer won!');
     } else {
         console.log("It's a tie! Friendship won!");
     }
-}
 
+    const refresh = document.createElement('button');
+    refresh.textContent = '↻';
+    refresh.classList.add('refresh');
+    document.body.appendChild(refresh);
+    refresh.addEventListener('click', () => {
+        location.reload();
+    })
+
+}
 playGame();
