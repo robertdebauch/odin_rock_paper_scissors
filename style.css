@@ -1,0 +1,126 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #3d3d3d;
+    font-family: Inter;
+}
+
+#container {
+    background-color: #edffa7;
+    color: #080f0f;
+    margin: 1rem auto;
+    max-width: 800px;
+    border-bottom: 0.25rem solid #080f0f;
+    border-bottom-left-radius: 1.25rem;
+    border-bottom-right-radius: 1.25rem;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* header & children */
+
+#header {
+   border-bottom: 0.25rem solid #080f0f;
+   padding: 1rem;
+   width: 800px;
+   flex: 1;
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: space-between;
+   align-items: center;
+
+}
+
+#header > h1 {
+    /* width: 510px; */
+    font-size: 3rem;
+    font-weight: 700;
+    font-style: italic;
+    flex: auto;
+}
+
+#slogan {
+    max-width: 200px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-align: right;
+    flex: auto;
+}
+
+/* button */
+
+#panel {
+    width: 800px;
+    flex: 1;
+    padding: 3rem 1rem 1rem 1rem;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+button {
+    background-color: #CCC7FF;
+    padding: 0.75rem 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #080f0f;
+    border: 4px solid #080f0f;
+    border-radius: 0.5rem;
+    height: 4rem;
+    text-align: center;
+    line-height: 1rem;
+    max-width: 235px;
+    flex: 1 1 100%;
+}
+
+button:hover {
+    background-color: #7b6cff;
+    color: #0a0060;
+    border: 4px solid #0a0060;
+    border-radius: 0rem;
+}
+
+/* scores and information */
+
+#information {
+    width: 800px;
+    padding: 1rem;
+    display: flex;
+    flex-flow: column wrap;
+    gap: 0.5rem;
+
+}
+
+#score {
+    max-width: 50%;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 2rem;
+    justify-content: flex-start;
+}
+
+#score > p {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+#information > #result {
+    height: 150px;
+    background-color: #fff;
+    color: #080f0f;
+    font-size: 2rem;
+    font-weight: 500;
+    text-align: center;
+    align-content: center;
+
+    border: 4px solid #080f0f;
+    border-radius: 0.75rem;
+}

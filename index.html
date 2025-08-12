@@ -7,23 +7,33 @@
     <title>The Odin Project: Rock, Paper, Scissors</title>
     <!-- <script src="rockpaperscissors.js"></script> -->
     <link rel="stylesheet" href="style.css">
+    <!-- Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
-    <header id="header">
-        <h1>Rock, Paper, Scissors</h1>
-        <div id="slogan">Choose your action and see the result</div>
-    </header>
-    <section id="panel">
-        <button id="rock">rock 🪨</button>
-        <button id="paper">paper 📜</button>
-        <button id="scissors">scissors ✂️</button>
-    </section>
-    <section id="information">
-        <p id="human-score">Human:</p>
-        <p id="computer-score">Computer:</p>
-        <div id="result">Result</div>
-    </section>
+    <div id="container">
+        <header id="header">
+            <h1>Rock, Paper, Scissors</h1>
+            <div id="slogan">Choose your action and see the result</div>
+        </header>
+        <section id="panel">
+            <button id="rock">rock 🪨</button>
+            <button id="paper">paper 📜</button>
+            <button id="scissors">scissors ✂️</button>
+        </section>
+        <section id="information">
+            <div id="score">
+                <p id="human-score">Human:</p>
+                <p id="computer-score">Computer:</p>
+            </div>
+            <div id="result">Result</div>
+        </section>
+    </div>
 </body>
 
 </html>
