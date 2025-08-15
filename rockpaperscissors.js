@@ -7,18 +7,16 @@ function theGame() {
     const paper = document.querySelector('#paper');
     const scissors = document.querySelector("#scissors");
     const humanOptions = [rock, paper, scissors];
-    // const computerOptions = ['rock', 'paper', 'scissors']; // doesn't work yet!
 
     function handleClick(event) {
         playGame(event.target.id, getComputerChoice());
-        // console.log(event.target.id);
     }
 
     humanOptions.forEach((option) => {
         option.addEventListener('click', handleClick);
     });
 
-    // computer choice
+
     function getComputerChoice() {
         let answer = Math.random()
         if (answer === 0 || answer <= 0.33) {
@@ -30,81 +28,107 @@ function theGame() {
         }
     }
 
-    // game logic
     function playGame(humanSelection, computerSelection) {
-        // console.log(humanSelection);
-        // console.log(computerSelection);
 
-        // target p with id="human-score"
         const humanCurrentScore = document.querySelector('#human-score');
-
-        // target p with id="computer-score"
         const compCurrentScore = document.querySelector('#computer-score');
 
-
-        // target div id="result" 
         const result = document.querySelector('#result');
-        // console.log(result);
+        const resultInfo = document.querySelector('#result-info');
+        const resultMain = document.querySelector('#result-main');
 
         if (humanSelection === "rock" && computerSelection === "paper") {
-            result.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}. You lose! Paper beats Rock!`;
+            resultInfo.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}.`;
+
+            resultMain.style.backgroundColor = '#ff9c9c';
+            resultMain.textContent = `You lose! Paper beats Rock!`;
+
             computerScore += 1;
             humanCurrentScore.textContent = 'Human: ' + humanScore;
             compCurrentScore.textContent = 'Computer: ' + computerScore;
 
         } else if (humanSelection === "rock" && computerSelection === "scissors") {
-            result.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}. You win! Rock beats Scissors!`
+            resultInfo.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}.`;
+
+            resultMain.style.backgroundColor = '#80e48d';
+            resultMain.textContent = `You win! Rock beats Scissors!`;
+
             humanScore += 1;
             humanCurrentScore.textContent = 'Human: ' + humanScore;
             compCurrentScore.textContent = 'Computer: ' + computerScore;
+
         } else if (humanSelection === "paper" && computerSelection === "rock") {
-            result.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}. You win! Paper beats Rock!`
+            resultInfo.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}.`;
+
+            resultMain.style.backgroundColor = '#80e48d';
+            resultMain.textContent = `You win! Paper beats Rock!`;
+
             humanScore += 1;
             humanCurrentScore.textContent = 'Human: ' + humanScore;
             compCurrentScore.textContent = 'Computer: ' + computerScore;
+
         } else if (humanSelection === "paper" && computerSelection === "scissors") {
-            result.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}. You lose! Scissors beats Paper!`
+            resultInfo.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}.`;
+
+            resultMain.style.backgroundColor = '#ff9c9c';
+            resultMain.textContent = `You lose! Scissors beats Paper!`;
+
             computerScore += 1;
             humanCurrentScore.textContent = 'Human: ' + humanScore;
             compCurrentScore.textContent = 'Computer: ' + computerScore;
+
         } else if (humanSelection === "scissors" && computerSelection === "rock") {
-            result.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}. You lose! Rock beats Scissors!`
+            resultInfo.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}.`;
+
+            resultMain.style.backgroundColor = '#ff9c9c';
+            resultMain.textContent = `You lose! Rock beats Scissors!`;
+
             computerScore += 1;
             humanCurrentScore.textContent = 'Human: ' + humanScore;
             compCurrentScore.textContent = 'Computer: ' + computerScore;
+
         } else if (humanSelection === "scissors" && computerSelection === "paper") {
-            result.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}. You win! Scissors beats Paper!`
+            resultInfo.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}.`;
+
+            resultMain.style.backgroundColor = '#80e48d';
+            resultMain.textContent = `You win! Scissors beats Paper!`;
+
             humanScore += 1;
             humanCurrentScore.textContent = 'Human: ' + humanScore;
             compCurrentScore.textContent = 'Computer: ' + computerScore;
+
         } else {
-            result.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}. It's a tie!`
+            resultInfo.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}.`;
+
+            resultMain.textContent = `It's a tie!`;
+            resultMain.style.backgroundColor = '#f0f0f0';
             humanCurrentScore.textContent = 'Human: ' + humanScore;
             compCurrentScore.textContent = 'Computer: ' + computerScore;
         }
 
-        // console.log("Human score: " + humanScore + " | " + "Computer score: " + computerScore);
-
-        // remove event listener from buttons when one of the player have 5 points
         if (humanScore >= 5 || computerScore >= 5) {
             humanOptions.forEach((option) => {
                 option.classList.add('disabled');
                 option.removeEventListener('click', handleClick);
             });
 
-            // show winner
             if (humanScore > computerScore && humanScore >= 5) {
-                result.textContent = `Human won!`;
-                // console.log('Human won!');
+                // result.textContent = `The Game is Over! Human won!`;
+                resultInfo.textContent = `The Game is Over! Press refresh to play again!`;
+
+                resultMain.style.backgroundColor = '#38b148';
+                result.backgroundColor = '#38b148';
+                result.setAttribute('style', 'background-color: #38b148;');
+                resultMain.textContent = `Human won!`;
+
             } else if (computerScore > humanScore && computerScore >= 5) {
-                result.textContent = `Computer won!`;
-                // console.log('Computer won!');
-            } else if (computerScore === humanScore) {
-                if (computerScore > 0 || humanScore > 0) {
-                    result.textContent = `It's a tie! Friendship won!`;
-                    // console.log("It's a tie! Friendship won!");
-                } 
-            }
+                // result.textContent = `The Game is Over! Computer won!`;
+                resultInfo.textContent = `The Game is Over! Press refresh to play again!`;
+
+                resultMain.style.backgroundColor = '#ff6161';
+                result.setAttribute('style', 'background-color: #ff6161;');
+                resultMain.textContent = `Computer won!`;
+            } 
 
             refreshButton();
         }
@@ -114,12 +138,14 @@ function theGame() {
         const refresh = document.createElement('button');
         refresh.textContent = '↻';
         refresh.classList.add('refresh');
-        document.body.appendChild(refresh);
+        slogan.textContent = '';
+        slogan.setAttribute('style', 'display: flex; justify-content: flex-end; align-items: stretch; flex-grow: 0;')
+        slogan.appendChild(refresh);
         refresh.addEventListener('click', () => {
-        location.reload();
-    });
+            location.reload();
+        });
     }
-    
+
 
 }
 theGame();
