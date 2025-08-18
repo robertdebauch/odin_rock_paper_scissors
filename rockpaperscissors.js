@@ -30,7 +30,6 @@ function rockPaperScissors() {
         option.addEventListener('click', chooseAction);
     });
 
-
     function playGame(humanSelection, computerSelection) {
 
         const humanWonRound =
@@ -43,27 +42,25 @@ function rockPaperScissors() {
             humanSelection === "paper" && computerSelection === "scissors" ||
             humanSelection === "scissors" && computerSelection === "rock";
 
-
         function displayRoundResult(winner) {
             if (winner === 'human') {
-                resultInfo.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}.`;
+                updateRoundResult('human', '#80e48d', `You win! ${humanSelection} beats ${computerSelection}!`);
+            } else if (winner === 'computer') {
+                updateRoundResult('computer', '#ff9c9c', `You lose! ${computerSelection} beats ${humanSelection}!`);
+            } else if (winner === 'tie') {
+                updateRoundResult('tie', '#f0f0f0', `It's a tie!`);
+            }
+        }
 
-                resultMain.style.backgroundColor = '#80e48d';
-                resultMain.textContent = `You win! ${humanSelection} beats ${computerSelection}!`;
+        function updateRoundResult(winner, background, message) {
+            resultInfo.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}.`;
+            resultMain.style.backgroundColor = background;
+            resultMain.textContent = message;
 
+            if (winner === 'human') {
                 humanScore += 1;
             } else if (winner === 'computer') {
-                resultInfo.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}.`;
-
-                resultMain.style.backgroundColor = '#ff9c9c';
-                resultMain.textContent = `You lose! ${computerSelection} beats ${humanSelection}!`;
-
                 computerScore += 1;
-            } else if (winner === 'tie') {
-                resultInfo.textContent = `You chose ${humanSelection}, computer chose ${computerSelection}.`;
-
-                resultMain.textContent = `It's a tie!`;
-                resultMain.style.backgroundColor = '#f0f0f0';
             }
         }
 
@@ -96,17 +93,18 @@ function rockPaperScissors() {
                 displayGameResult('computer');
             }
 
-            refreshButton();
+            createRefreshButton();
         }
     }
 
-    function refreshButton() {
+    function createRefreshButton() {
+        const tagline = document.querySelector('#tagline');
         const refresh = document.createElement('button');
         refresh.textContent = '↻';
         refresh.classList.add('refresh');
-        slogan.textContent = '';
-        slogan.setAttribute('style', 'display: flex; justify-content: flex-end; align-items: stretch; flex-grow: 0;')
-        slogan.appendChild(refresh);
+        tagline.textContent = '';
+        tagline.setAttribute('style', 'display: flex; justify-content: flex-end; align-items: stretch; flex-grow: 0;')
+        tagline.appendChild(refresh);
         refresh.addEventListener('click', () => {
             location.reload();
         });
@@ -116,14 +114,17 @@ function rockPaperScissors() {
         resultInfo.textContent = `The Game is Over! Press refresh to play again!`;
 
         if (winner === 'human') {
-            resultMain.style.backgroundColor = '#38b148';
-            result.style.backgroundColor = '#38b148';
+            setBackgroundColor('#38b148');
             resultMain.textContent = `Human won!`;
         } else {
-            resultMain.style.backgroundColor = '#ff6161';
-            result.style.backgroundColor = '#ff6161';
+            setBackgroundColor('#ff6161');
             resultMain.textContent = `Computer won!`;
         }
+    }
+
+    function setBackgroundColor(background) {
+        resultMain.style.backgroundColor = background;
+        result.style.backgroundColor = background;
     }
 
 }
